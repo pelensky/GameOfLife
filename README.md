@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/pelensky/GameOfLife.svg?branch=master)](https://travis-ci.org/pelensky/GameOfLife)
+[![Coverage Status](https://coveralls.io/repos/github/pelensky/GameOfLife/badge.svg?branch=master)](https://coveralls.io/github/pelensky/GameOfLife?branch=master)
 
 # Conway's Game of Life
 
