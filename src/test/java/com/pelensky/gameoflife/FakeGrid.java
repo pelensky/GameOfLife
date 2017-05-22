@@ -3,7 +3,7 @@ package com.pelensky.gameoflife;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeGrid implements GridInterface {
+public class FakeGrid implements Grid {
   @Override
   public List<List<Cell>> getCellGrid() {
     return setUpFakeGrid();
