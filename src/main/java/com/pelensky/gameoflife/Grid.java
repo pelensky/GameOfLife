@@ -3,14 +3,18 @@ package com.pelensky.gameoflife;
 import java.util.ArrayList;
 import java.util.List;
 
-class Grid {
+class Grid implements GridInterface {
 
     private final int numberOfRows;
-    private final List<List<Cell>> cells;
+    private final List<List<Cell>> cellGrid;
 
     Grid (int numberOfRows){
         this.numberOfRows = numberOfRows;
-        this.cells = fillGrid();
+        this.cellGrid = fillGrid();
+    }
+
+    public List<List<Cell>> getCellGrid() {
+        return cellGrid;
     }
 
     private List<List<Cell>> fillGrid(){
@@ -27,10 +31,6 @@ class Grid {
             row.add(new Cell(setInitialState()));
         }
         return row;
-    }
-
-    List<List<Cell>> getCells() {
-        return cells;
     }
 
     private boolean setInitialState() {
