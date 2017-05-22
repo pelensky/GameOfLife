@@ -1,13 +1,17 @@
 package com.pelensky.gameoflife;
 
 
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertThat;
 
 public class LifeTest {
 
@@ -82,15 +86,12 @@ public class LifeTest {
 
     @Test
     public void lifeTakesAGrid(){
-       for (int row = 0; row < grid.size(); row ++){
-           for (int cell = 0; cell < grid.get(0).size(); cell++){
-               assertEquals(grid.get(row).get(cell).isAlive(), life.getGrid().get(row).get(cell).isAlive());
-           }
-       }
+      assertFalse(life.getGrid().get(0).get(0).isAlive());
     }
 
     @Test
-    public void countLiveNeighbours(){
-
+    public void countsLiveNeighbours() {
+        assertThat(1, is(equalTo(life.countLiveNeighbours().get(0).get(0))));
     }
+
 }
