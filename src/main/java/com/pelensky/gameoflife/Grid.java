@@ -1,29 +1,35 @@
 package com.pelensky.gameoflife;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 class Grid {
 
     private final int numberOfRows;
-    private final List<Cell> cells;
+    private final List<List<Cell>> cells;
 
     Grid (int numberOfRows){
         this.numberOfRows = numberOfRows;
         this.cells = fillGrid();
     }
 
-    private List<Cell> fillGrid(){
-        List<Cell> grid = new ArrayList<>();
-        for (int i = 0; i < numberOfRows * numberOfRows; i ++){
-            grid.add(new Cell());
+    private List<List<Cell>> fillGrid(){
+        List<List<Cell>> grid = new ArrayList<>();
+        for (int i = 0; i< numberOfRows; i++){
+            grid.add(fillRow());
         }
         return grid;
     }
 
-    List<Cell> getCells() {
+    private List<Cell> fillRow(){
+        List<Cell> row = new ArrayList<>();
+        for (int i = 0; i < numberOfRows; i ++){
+            row.add(new Cell());
+        }
+        return row;
+    }
+
+    List<List<Cell>> getCells() {
         return cells;
     }
 

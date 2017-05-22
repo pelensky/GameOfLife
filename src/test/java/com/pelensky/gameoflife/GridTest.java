@@ -15,8 +15,8 @@ public class GridTest {
     }
 
     @Test
-    public void gridTakesANumber(){
-        assertEquals(100, grid.getCells().size());
+    public void setUpGrid() {
+        assertEquals(10, grid.getCells().get(0).size());
     }
 
 }
