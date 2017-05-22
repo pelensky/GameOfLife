@@ -4,7 +4,7 @@ import java.util.List;
 
 class Life {
 
-    private List<List<Cell>> grid;
+    private final List<List<Cell>> grid;
 
     Life(Grid cellGrid){
         this.grid = cellGrid.getCellGrid();
@@ -13,5 +13,4 @@ class Life {
     List<List<Cell>> getGrid(){
         return grid;
     }
-
 }

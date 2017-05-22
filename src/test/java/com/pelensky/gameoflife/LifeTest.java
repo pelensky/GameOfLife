@@ -1,6 +1,7 @@
 package com.pelensky.gameoflife;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,8 +16,12 @@ public class LifeTest {
         life = new Life(fakeGrid);
     }
 
-    @Before
+    @Test
     public void lifeTakesAGrid(){
-        assertEquals(fakeGrid.getCellGrid(), life.getGrid());
+       for (int row = 0; row < fakeGrid.getCellGrid().size(); row ++){
+           for (int cell = 0; cell < fakeGrid.getCellGrid().get(0).size(); cell++){
+               assertEquals(fakeGrid.getCellGrid().get(row).get(cell).isAlive(), life.getGrid().get(row).get(cell).isAlive());
+           }
+       }
     }
 }
