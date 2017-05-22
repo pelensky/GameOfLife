@@ -11,11 +11,11 @@ public class CellTest {
 
     @Before
     public void setUp(){
-        cell = new Cell();
+        cell = new Cell(false);
     }
 
     @Test
-    public void cellsStartAsNotLiving(){
+    public void getLivingStatus(){
         assertFalse(cell.isAlive());
     }
 

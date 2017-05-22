@@ -24,7 +24,7 @@ class Grid {
     private List<Cell> fillRow(){
         List<Cell> row = new ArrayList<>();
         for (int i = 0; i < numberOfRows; i ++){
-            row.add(new Cell());
+            row.add(new Cell(setInitialState()));
         }
         return row;
     }
@@ -33,6 +33,7 @@ class Grid {
         return cells;
     }
 
-
-
+    private boolean setInitialState() {
+            return Math.random() < 0.5;
+        }
 }

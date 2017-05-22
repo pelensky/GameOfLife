@@ -1,7 +1,12 @@
 package com.pelensky.gameoflife;
 
 class Cell {
-    private boolean alive = false;
+
+    private boolean alive;
+
+    Cell(boolean alive){
+        this.alive = alive;
+    }
 
     boolean isAlive() {
         return alive;
