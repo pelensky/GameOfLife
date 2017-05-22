@@ -13,6 +13,7 @@ class Grid implements GridInterface {
         this.cellGrid = fillGrid();
     }
 
+    @Override
     public List<List<Cell>> getCellGrid() {
         return cellGrid;
     }
