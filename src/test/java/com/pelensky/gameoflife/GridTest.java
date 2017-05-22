@@ -7,16 +7,15 @@ import static org.junit.Assert.assertEquals;
 
 public class GridTest {
 
-    private Grid grid;
+  private Grid grid;
 
-    @Before
-    public void setUp(){
-        grid = new Grid(10);
-    }
+  @Before
+  public void setUp() {
+    grid = new Grid(10);
+  }
 
-    @Test
-    public void gridTakesANumber(){
-        assertEquals(100, grid.getCells().size());
-    }
-
+  @Test
+  public void setUpGrid() {
+    assertEquals(10, grid.getCellGrid().get(0).size());
+  }
 }
