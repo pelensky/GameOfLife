@@ -5,17 +5,17 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CellGridTest {
+public class GridTest {
 
-  private CellGrid cellGrid;
+  private Grid grid;
 
   @Before
   public void setUp() {
-    cellGrid = new CellGrid(10);
+    grid = new Grid(10);
   }
 
   @Test
   public void setUpGrid() {
-    assertEquals(10, cellGrid.getCellGrid().get(0).size());
+    assertEquals(10, grid.getCellGrid().get(0).size());
   }
 }

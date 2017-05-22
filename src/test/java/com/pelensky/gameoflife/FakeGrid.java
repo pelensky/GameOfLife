@@ -3,13 +3,9 @@ package com.pelensky.gameoflife;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeGrid implements Grid {
-  @Override
-  public List<List<Cell>> getCellGrid() {
-    return setUpFakeGrid();
-  }
+class FakeGrid {
 
-  private List<List<Cell>> setUpFakeGrid() {
+  List<List<Cell>> fakeGrid() {
     List<List<Cell>> grid = new ArrayList<>();
     grid.add(row0());
     grid.add(row1());
@@ -21,51 +17,51 @@ public class FakeGrid implements Grid {
 
   private List<Cell> row0() {
     List<Cell> row = new ArrayList<>();
-    row.add(new Cell(false));
-    row.add(new Cell(true));
-    row.add(new Cell(false));
-    row.add(new Cell(false));
-    row.add(new Cell(false));
+    row.add(new NotLivingCell());
+    row.add(new LivingCell());
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
     return row;
   }
 
   private List<Cell> row1() {
     List<Cell> row = new ArrayList<>();
-    row.add(new Cell(false));
-    row.add(new Cell(false));
-    row.add(new Cell(false));
-    row.add(new Cell(false));
-    row.add(new Cell(false));
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
     return row;
   }
 
   private List<Cell> row2() {
     List<Cell> row = new ArrayList<>();
-    row.add(new Cell(false));
-    row.add(new Cell(true));
-    row.add(new Cell(false));
-    row.add(new Cell(true));
-    row.add(new Cell(false));
+    row.add(new NotLivingCell());
+    row.add(new LivingCell());
+    row.add(new NotLivingCell());
+    row.add(new LivingCell());
+    row.add(new NotLivingCell());
     return row;
   }
 
   private List<Cell> row3() {
     List<Cell> row = new ArrayList<>();
-    row.add(new Cell(false));
-    row.add(new Cell(true));
-    row.add(new Cell(true));
-    row.add(new Cell(true));
-    row.add(new Cell(false));
+    row.add(new NotLivingCell());
+    row.add(new LivingCell());
+    row.add(new LivingCell());
+    row.add(new LivingCell());
+    row.add(new NotLivingCell());
     return row;
   }
 
   private List<Cell> row4() {
     List<Cell> row = new ArrayList<>();
-    row.add(new Cell(false));
-    row.add(new Cell(false));
-    row.add(new Cell(false));
-    row.add(new Cell(true));
-    row.add(new Cell(false));
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
+    row.add(new NotLivingCell());
+    row.add(new LivingCell());
+    row.add(new NotLivingCell());
     return row;
   }
 }

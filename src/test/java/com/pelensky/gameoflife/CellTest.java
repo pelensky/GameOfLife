@@ -7,28 +7,19 @@ import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class CellTest {
-  private Cell cell;
+  private Cell livingCell;
+  private Cell notLivingCell;
 
   @Before
   public void setUp() {
-    cell = new Cell(false);
+    livingCell = new LivingCell();
+    notLivingCell = new NotLivingCell();
   }
 
   @Test
   public void getLivingStatus() {
-    assertFalse(cell.isAlive());
+    assertFalse(notLivingCell.isAlive());
+    assertTrue(livingCell.isAlive());
   }
 
-  @Test
-  public void notLivingCellsStatusCanBeChanged() {
-    cell.setAlive(true);
-    assertTrue(cell.isAlive());
-  }
-
-  @Test
-  public void livingCellsStatusCanBeChanged() {
-    cell.setAlive(true);
-    cell.setAlive(false);
-    assertFalse(cell.isAlive());
-  }
 }
