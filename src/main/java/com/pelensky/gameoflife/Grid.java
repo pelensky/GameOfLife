@@ -28,12 +28,16 @@ class Grid {
   private List<Cell> fillRow() {
     List<Cell> row = new ArrayList<>();
     for (int i = 0; i < numberOfRows; i++) {
-      row.add(new NotLivingCell());
+      row.add(createCell());
     }
     return row;
   }
 
-  private boolean setInitialState() {
-    return Math.random() < 0.5;
+  private Cell createCell() {
+     if (Math.random() < 0.5) {
+         return new LivingCell();
+     } else {
+         return new NotLivingCell();
+     }
   }
 }
