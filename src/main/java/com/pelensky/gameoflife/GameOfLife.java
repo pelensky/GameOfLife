@@ -1,4 +1,3 @@
 package com.pelensky.gameoflife;
 
-public class GameOfLife {
-}
+public class GameOfLife {}

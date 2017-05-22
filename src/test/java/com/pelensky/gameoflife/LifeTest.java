@@ -1,5 +1,3 @@
 package com.pelensky.gameoflife;
 
-public class LifeTest {
-
-}
+public class LifeTest {}
