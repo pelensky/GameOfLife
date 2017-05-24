@@ -9,7 +9,7 @@ public class GameOfLife {
     public static void main(String[] args) {
         PrintStream output = new PrintStream(System.out);
         Print print = new Print(output);
-        List<List<Cell>> grid = new FakeGrid().createFakeGrid();
+        List<List<Cell>> grid = new Grid(10).getCellGrid();
         Life life = new Life(grid);
         Input input = new Input(new Scanner(System.in));
         AppRunner appRunner = new AppRunner(print, input, life);
