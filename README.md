@@ -15,3 +15,16 @@ The "game" is a zero-player game, meaning that its evolution is determined by it
 2. Any live cell with two or three live neighbours lives on to the next generation.
 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+#### Prerequisites 
+1. Install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+#### Running instructions
+1. Clone the repository by clicking on the green "Clone or Download" button
+2. Select Download Zip
+3. Double click the zip file to unzip it
+4. In terminal, CD into the repository
+5. Build the app by running $ ./gradlew build
+6. Run the tests by running $ ./gradlew cleanTest test
+7. Start the app by running $ ./gradlew --console plain run
+8. The app will show you five generations at a time, and ask if you want to continue
