@@ -1,7 +1,6 @@
 package com.pelensky.gameoflife;
 
 public class NotLivingCell implements Cell {
-    private int reproduction = 3;
 
     @Override
     public boolean isAlive() {
@@ -10,6 +9,7 @@ public class NotLivingCell implements Cell {
 
     @Override
     public Cell nextGeneration(int neighbours) {
+        final int reproduction = 3;
         if (neighbours == reproduction){
             return new LivingCell();
         } else {
