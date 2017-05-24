@@ -5,8 +5,12 @@ import java.util.Scanner;
 
 public class GameOfLife {
 
-    public static void main(String[] args) {
-        AppRunner appRunner = new AppRunner(new Print(new PrintStream(System.out)), new Input(new Scanner(System.in)), new Life(new Grid(10).getCellGrid()));
-        appRunner.run();
-    }
+  public static void main(String[] args) {
+    AppRunner appRunner =
+        new AppRunner(
+            new Print(new PrintStream(System.out)),
+            new Input(new Scanner(System.in)),
+            new Life(new Grid(10).getCellGrid()));
+    appRunner.run();
+  }
 }
