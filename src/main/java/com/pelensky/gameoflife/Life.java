@@ -5,8 +5,8 @@ import java.util.List;
 
 class Life {
 
-    private List<List<Cell>> grid;
-    private int generationCount = 1;
+  private List<List<Cell>> grid;
+  private int generationCount = 1;
 
   Life(List<List<Cell>> grid) {
     this.grid = grid;
@@ -16,77 +16,71 @@ class Life {
     return grid;
   }
 
-    private void setGrid(List<List<Cell>> grid) {
-        this.grid = grid;
-    }
-
-  List<List<Integer>> countLiveNeighbours() {
-    List<List<Integer>> liveNeighbours = new ArrayList<>();
-    for (int row = 0; row < getGrid().size(); row++) {
-      List<Integer> liveNeighboursRow = new ArrayList<>();
-      for (int column = 0; column < getGrid().get(row).size(); column++) {
-        liveNeighboursRow.add(count(row, column));
-      }
-      liveNeighbours.add(liveNeighboursRow);
-    }
-    return liveNeighbours;
+  private void setGrid(List<List<Cell>> grid) {
+    this.grid = grid;
   }
 
-  private Integer count(int row, int cell) {
-    Integer counter = 0;
-    boolean belowLeft = checkLifeStatus(row - 1, cell - 1);
-    boolean below = checkLifeStatus(row - 1, cell);
-    boolean belowRight = checkLifeStatus(row - 1, cell + 1);
-    boolean left = checkLifeStatus(row, cell - 1);
-    boolean right = checkLifeStatus(row, cell + 1);
-    boolean aboveLeft = checkLifeStatus(row + 1, cell - 1);
-    boolean above = checkLifeStatus(row + 1, cell);
-    boolean aboveRight = checkLifeStatus(row + 1, cell + 1);
-    if (belowLeft) counter += 1;
-    if (below) counter += 1;
-    if (belowRight) counter += 1;
-    if (left) counter += 1;
-    if (right) counter += 1;
-    if (aboveLeft) counter += 1;
-    if (above) counter += 1;
-    if (aboveRight) counter += 1;
-    return counter;
+  List<List<Integer>> countLiveNeighboursInGrid() {
+    List<List<Integer>> liveNeighboursInGrid = new ArrayList<>();
+    for (int row = 0; row < getGrid().size(); row++) {
+      List<Integer> liveNeighboursInRow = new ArrayList<>();
+      for (int column = 0; column < getGrid().get(row).size(); column++) {
+        liveNeighboursInRow.add(countLiveNeighboursOfCell(row, column));
+      }
+      liveNeighboursInGrid.add(liveNeighboursInRow);
+    }
+    return liveNeighboursInGrid;
+  }
+
+  private Integer countLiveNeighboursOfCell(int row, int column) {
+    Integer liveNeighbourCount = 0;
+    boolean checkBelowLeft = checkLifeStatus(row - 1, column - 1);
+    boolean checkBelow = checkLifeStatus(row - 1, column);
+    boolean checkBelowRight = checkLifeStatus(row - 1, column + 1);
+    boolean checkLeft = checkLifeStatus(row, column - 1);
+    boolean checkRight = checkLifeStatus(row, column + 1);
+    boolean checkAboveLeft = checkLifeStatus(row + 1, column - 1);
+    boolean checkAbove = checkLifeStatus(row + 1, column);
+    boolean checkAboveRight = checkLifeStatus(row + 1, column + 1);
+    if (checkBelowLeft) liveNeighbourCount += 1;
+    if (checkBelow) liveNeighbourCount += 1;
+    if (checkBelowRight) liveNeighbourCount += 1;
+    if (checkLeft) liveNeighbourCount += 1;
+    if (checkRight) liveNeighbourCount += 1;
+    if (checkAboveLeft) liveNeighbourCount += 1;
+    if (checkAbove) liveNeighbourCount += 1;
+    if (checkAboveRight) liveNeighbourCount += 1;
+    return liveNeighbourCount;
   }
 
   private boolean checkLifeStatus(int row, int cell) {
-    if ((row < 0) || (cell < 0)) {
-      return false;
-    } else if (row >= getGrid().size() || cell >= getGrid().size()) {
+    if (outsideOfGrid(row, cell)) {
       return false;
     } else {
       return getGrid().get(row).get(cell).isAlive();
     }
   }
 
+  private boolean outsideOfGrid(int row, int cell) {
+    return row < 0 || cell < 0 || row >= getGrid().size() || cell >= getGrid().size();
+  }
+
   void nextGeneration() {
-      List<List<Cell>> cellGrid = new ArrayList<>();
+    setNextGeneration();
+    increaseGenerationCount();
+  }
+
+  private void setNextGeneration() {
+    List<List<Cell>> cellGrid = new ArrayList<>();
     for (int row = 0; row < getGrid().size(); row++) {
-        List<Cell> cellRow = new ArrayList<>();
+      List<Cell> cellRow = new ArrayList<>();
       for (int column = 0; column < getGrid().get(row).size(); column++) {
-        int liveNeighbours = countLiveNeighbours().get(row).get(column);
+        int liveNeighbours = countLiveNeighboursOfCell(row, column);
         cellRow.add(getGrid().get(row).get(column).nextGeneration(liveNeighbours));
       }
       cellGrid.add(cellRow);
     }
     setGrid(cellGrid);
-    increaseGenerationCount();
-  }
-
-  int livingCells() {
-    int live = 0;
-    for (int row = 0; row < getGrid().size(); row ++) {
-      for (int column = 0; column < getGrid().get(row).size(); column ++) {
-        if (getGrid().get(row).get(column).isAlive()) {
-        live ++;
-        }
-        }
-      }
-    return live;
   }
 
   int getGenerationCount() {
@@ -94,6 +88,6 @@ class Life {
   }
 
   private void increaseGenerationCount() {
-   generationCount += 1;
+    generationCount += 1;
   }
 }

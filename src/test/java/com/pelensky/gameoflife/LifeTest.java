@@ -28,7 +28,7 @@ public class LifeTest {
 
     @Test
     public void countsLiveNeighbours() {
-        assertThat(1, is(equalTo(life.countLiveNeighbours().get(0).get(0))));
+        assertThat(1, is(equalTo(life.countLiveNeighboursInGrid().get(0).get(0))));
     }
 
     @Test
@@ -76,9 +76,5 @@ public class LifeTest {
         assertFalse(life.getGrid().get(4).get(4).isAlive());
     }
 
-    @Test
-    public void allDead() {
-       assertThat(7, is(life.livingCells()));
-    }
 
 }
