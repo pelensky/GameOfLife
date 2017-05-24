@@ -1,11 +1,8 @@
 package com.pelensky.gameoflife;
 
-
-
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.Assert.assertFalse;
@@ -32,6 +29,17 @@ public class LifeTest {
     @Test
     public void countsLiveNeighbours() {
         assertThat(1, is(equalTo(life.countLiveNeighbours().get(0).get(0))));
+    }
+
+    @Test
+    public void countGeneration() {
+        assertThat(1, is(life.getGenerationCount()));
+    }
+
+    @Test
+    public void generationCountIncreases() {
+        life.nextGeneration();
+        assertThat(2, is(life.getGenerationCount()));
     }
 
     @Test
@@ -66,6 +74,11 @@ public class LifeTest {
         assertFalse(life.getGrid().get(4).get(2).isAlive());
         assertTrue(life.getGrid().get(4).get(3).isAlive());
         assertFalse(life.getGrid().get(4).get(4).isAlive());
+    }
+
+    @Test
+    public void allDead() {
+       assertThat(7, is(life.livingCells()));
     }
 
 }

@@ -17,4 +17,9 @@ public class LivingCell implements Cell {
             return new NotLivingCell();
         }
     }
+
+    @Override
+    public String marker() {
+        return "*";
+    }
 }
