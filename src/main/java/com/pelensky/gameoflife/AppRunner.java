@@ -2,9 +2,9 @@ package com.pelensky.gameoflife;
 
 class AppRunner {
 
-  private Print print;
-  private Life life;
-  private Input input;
+  private final Print print;
+  private final Life life;
+  private final Input input;
 
   AppRunner(Print print, Input input, Life life) {
     this.print = print;
@@ -14,14 +14,13 @@ class AppRunner {
 
   void run() {
     print.welcome();
-    newGeneration();
+    evolve();
     while (!gameOver()) {
-      newGeneration();
-
+      evolve();
     }
   }
 
-  private void newGeneration() {
+  private void evolve() {
     int numberOfGenerations = 5;
     for (int i = 0; i < numberOfGenerations; i++) {
       print.generationNumber(life);
@@ -29,7 +28,7 @@ class AppRunner {
       slowDown();
       life.nextGeneration();
     }
-      print.seeNextGeneration();
+    print.seeNextGeneration();
   }
 
   private void slowDown() {
@@ -40,7 +39,6 @@ class AppRunner {
   }
 
   private boolean gameOver() {
-    String selection = input.getInput().toLowerCase();
-    return selection.equals("n");
+    return input.getInput().toLowerCase().equals("n");
   }
 }
