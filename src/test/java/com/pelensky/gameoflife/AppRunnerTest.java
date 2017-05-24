@@ -70,6 +70,6 @@ public class AppRunnerTest {
   public void seeNextGeneration() {
     run("n\n");
     appRunner.run();
-    assertThat(out.toString(), containsString("See Next Generation?" + System.lineSeparator() +  "Input `n` for No or any key for Yes"));
+    assertThat(out.toString(), containsString("See Next Generation?" + System.lineSeparator() +  "Type `n` for No, or any other key for Yes"));
   }
 }
