@@ -12,8 +12,17 @@ AppRunner(Print print, Life life){
 
     void run() {
         print.welcome();
+//        while (life.livingCells() > 0) {
+            newGeneration();
+            life.nextGeneration();
+//        }
+        newGeneration();
+
+}
+
+    private void newGeneration() {
         print.generationNumber(life);
         print.grid(life);
-}
+    }
 
 }

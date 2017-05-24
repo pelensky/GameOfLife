@@ -76,4 +76,9 @@ public class LifeTest {
         assertFalse(life.getGrid().get(4).get(4).isAlive());
     }
 
+    @Test
+    public void allDead() {
+       assertThat(7, is(life.livingCells()));
+    }
+
 }
