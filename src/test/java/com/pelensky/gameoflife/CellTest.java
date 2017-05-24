@@ -21,5 +21,4 @@ public class CellTest {
     assertFalse(notLivingCell.isAlive());
     assertTrue(livingCell.isAlive());
   }
-
 }

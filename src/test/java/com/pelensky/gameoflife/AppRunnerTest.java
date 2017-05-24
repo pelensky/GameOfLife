@@ -15,7 +15,6 @@ public class AppRunnerTest {
   private ByteArrayOutputStream out;
   private AppRunner appRunner;
 
-
   private void run(String text) {
     out = new ByteArrayOutputStream();
     PrintStream output = new PrintStream(out);
@@ -60,16 +59,21 @@ public class AppRunnerTest {
   }
 
   @Test
-    public void printGeneration2() {
+  public void printGeneration2() {
     run("n\nn\n");
     appRunner.run();
-      assertThat(out.toString(), containsString("Generation 2"));
+    assertThat(out.toString(), containsString("Generation 2"));
   }
 
   @Test
   public void seeNextGeneration() {
     run("n\n");
     appRunner.run();
-    assertThat(out.toString(), containsString("See Next Generation?" + System.lineSeparator() +  "Type `n` for No, or any other key for Yes"));
+    assertThat(
+        out.toString(),
+        containsString(
+            "See Next Generation?"
+                + System.lineSeparator()
+                + "Type `n` for No, or any other key for Yes"));
   }
 }
