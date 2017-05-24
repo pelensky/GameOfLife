@@ -10,14 +10,14 @@ class Grid {
 
   Grid(int numberOfRows) {
     this.numberOfRows = numberOfRows;
-    this.cellGrid = fillGrid();
+    this.cellGrid = makeGrid();
   }
 
- List<List<Cell>> getCellGrid() {
+  List<List<Cell>> getCellGrid() {
     return cellGrid;
   }
 
-  private List<List<Cell>> fillGrid() {
+  private List<List<Cell>> makeGrid() {
     List<List<Cell>> grid = new ArrayList<>();
     for (int i = 0; i < numberOfRows; i++) {
       grid.add(fillRow());
@@ -34,10 +34,11 @@ class Grid {
   }
 
   private Cell createCell() {
-     if (Math.random() < 0.5) {
-         return new LivingCell();
-     } else {
-         return new NotLivingCell();
-     }
+    final double proportionOfLiveCells = 0.5;
+    if (Math.random() < proportionOfLiveCells) {
+      return new LivingCell();
+    } else {
+      return new NotLivingCell();
+    }
   }
 }
