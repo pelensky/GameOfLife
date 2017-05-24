@@ -24,7 +24,7 @@ The "game" is a zero-player game, meaning that its evolution is determined by it
 2. Select Download Zip
 3. Double click the zip file to unzip it
 4. In terminal, CD into the repository
-5. Build the app by running $ ./gradlew build
-6. Run the tests by running $ ./gradlew cleanTest test
-7. Start the app by running $ ./gradlew --console plain run
+5. Build the app by running `$ ./gradlew build`
+6. Run the tests by running `$ ./gradlew cleanTest test`
+7. Start the app by running `$ ./gradlew --console plain run`
 8. The app will show you five generations at a time, and ask if you want to continue
