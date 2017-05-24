@@ -12,6 +12,7 @@ AppRunner(Print print, Life life){
 
     void run() {
         print.welcome();
-    }
+        print.generation(life);
+}
 
 }

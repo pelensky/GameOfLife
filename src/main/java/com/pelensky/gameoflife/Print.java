@@ -14,4 +14,8 @@ class Print {
         output.println("Game of Life");
     }
 
+    void generation(Life life) {
+    output.println("Generation " + life.getGenerationCount());
+    }
+
 }

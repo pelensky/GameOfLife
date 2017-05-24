@@ -6,6 +6,7 @@ import java.util.List;
 class Life {
 
     private List<List<Cell>> grid;
+    private int generationCount = 1;
 
   Life(List<List<Cell>> grid) {
     this.grid = grid;
@@ -73,5 +74,14 @@ class Life {
       cellGrid.add(cellRow);
     }
     setGrid(cellGrid);
+    increaseGenerationCount();
+  }
+
+  int getGenerationCount() {
+    return generationCount;
+  }
+
+  private void increaseGenerationCount() {
+   generationCount += 1;
   }
 }

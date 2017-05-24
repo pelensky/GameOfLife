@@ -32,6 +32,12 @@ public class AppRunnerTest {
                 containsString("Game of Life"));
     }
 
+    @Test
+    public void printGenerationNumber() {
+        appRunner.run();
+        assertThat(out.toString(), containsString("Generation 1"));
+    }
+
 
 
 
