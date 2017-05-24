@@ -60,7 +60,7 @@ public class AppRunnerTest {
 
   @Test
   public void printGeneration2() {
-    run("n\nn\n");
+    run("y\nn\n");
     appRunner.run();
     assertThat(out.toString(), containsString("Generation 2"));
   }
