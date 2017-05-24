@@ -18,6 +18,10 @@ class Print {
     output.println("Generation " + life.getGenerationCount());
     }
 
+    void seeNextGeneration() {
+        output.println("See Next Generation?" + System.lineSeparator() + "Input `n` for No or any key for Yes");
+    }
+
     void grid(Life life) {
      output.println(formatGrid(life));
     }

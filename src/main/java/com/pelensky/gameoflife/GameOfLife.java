@@ -2,6 +2,7 @@ package com.pelensky.gameoflife;
 
 import java.io.PrintStream;
 import java.util.List;
+import java.util.Scanner;
 
 public class GameOfLife {
 
@@ -10,7 +11,8 @@ public class GameOfLife {
         Print print = new Print(output);
         List<List<Cell>> grid = new FakeGrid().createFakeGrid();
         Life life = new Life(grid);
-        AppRunner appRunner = new AppRunner(print, life);
+        Input input = new Input(new Scanner(System.in));
+        AppRunner appRunner = new AppRunner(print, input, life);
         appRunner.run();
     }
 }

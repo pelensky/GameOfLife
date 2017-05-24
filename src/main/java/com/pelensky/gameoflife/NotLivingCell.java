@@ -19,6 +19,6 @@ public class NotLivingCell implements Cell {
 
     @Override
     public String marker() {
-        return " ";
+        return ".";
     }
 }
