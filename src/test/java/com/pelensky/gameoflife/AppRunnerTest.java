@@ -38,6 +38,14 @@ public class AppRunnerTest {
         assertThat(out.toString(), containsString("Generation 1"));
     }
 
+    @Test
+    public void printGenerationOne() {
+        appRunner.run();
+        assertThat(out.toString(), containsString(" *   " + System.lineSeparator() + "     " + System.lineSeparator() + " * * " + System.lineSeparator() + " *** " + System.lineSeparator() + "   * "));
+    }
+
+
+
 
 
 
