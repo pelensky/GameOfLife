@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 class FakeGrid {
-    private List<List<Cell>> grid;
 
-   List<List<Cell>> createFakeGrid() {
-        grid = new ArrayList<>();
+    List<List<Cell>> createFakeGrid() {
+        final List<List<Cell>> grid = new ArrayList<>();
         grid.add(row0());
         grid.add(row1());
         grid.add(row2());
