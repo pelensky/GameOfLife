@@ -20,7 +20,7 @@ class Print {
 
   void seeNextGeneration() {
     output.println(
-        "See Next Five Generations?"
+        "See More Generations?"
             + System.lineSeparator()
             + "Type `n` for No, or any other key for Yes");
   }
@@ -43,5 +43,11 @@ class Print {
       grid.append(singleRow).append(System.lineSeparator());
     }
     return String.valueOf(grid.toString());
+  }
+
+  void clearScreen() {
+      final String CLEAR_SCREEN = "\033[H\033[2J";
+      output.print(CLEAR_SCREEN);
+      output.flush();
   }
 }

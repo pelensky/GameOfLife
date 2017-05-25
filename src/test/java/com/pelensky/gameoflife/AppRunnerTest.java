@@ -1,6 +1,5 @@
 package com.pelensky.gameoflife;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,10 +9,12 @@ import java.util.Scanner;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class AppRunnerTest {
   private ByteArrayOutputStream out;
   private AppRunner appRunner;
+  private FakeDelay fakeDelay;
 
   private void run(String text) {
     out = new ByteArrayOutputStream();
@@ -23,7 +24,7 @@ public class AppRunnerTest {
     final Life life = new Life(grid);
     Scanner scanner = new Scanner(text);
     Input input = new Input(scanner);
-    Delay fakeDelay = new FakeDelay();
+    fakeDelay = new FakeDelay();
     appRunner = new AppRunner(print, input, life, fakeDelay);
   }
 
@@ -73,7 +74,7 @@ public class AppRunnerTest {
     assertThat(
         out.toString(),
         containsString(
-            "See Next Five Generations?"
+            "See More Generations?"
                 + System.lineSeparator()
                 + "Type `n` for No, or any other key for Yes"));
   }
@@ -83,5 +84,12 @@ public class AppRunnerTest {
     run("n\n");
     appRunner.run();
     assertThat(out.toString(), containsString("Exiting"));
+  }
+
+  @Test
+  public void wasDelayerCalled() {
+    run("n\n");
+    appRunner.run();
+    assertTrue(fakeDelay.isWasCalled());
   }
 }

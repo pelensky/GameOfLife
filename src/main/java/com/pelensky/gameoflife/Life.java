@@ -54,11 +54,7 @@ class Life {
   }
 
   private boolean checkLifeStatus(int row, int cell) {
-    if (outsideOfGrid(row, cell)) {
-      return false;
-    } else {
-      return getGrid().get(row).get(cell).isAlive();
-    }
+    return !outsideOfGrid(row, cell) && getGrid().get(row).get(cell).isAlive();
   }
 
   private boolean outsideOfGrid(int row, int cell) {

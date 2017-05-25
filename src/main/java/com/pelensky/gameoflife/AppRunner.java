@@ -24,8 +24,9 @@ class AppRunner {
   }
 
   private void evolve() {
-    int numberOfGenerations = 5;
+    int numberOfGenerations = 20;
     for (int i = 0; i < numberOfGenerations; i++) {
+      print.clearScreen();
       print.generationNumber(life);
       print.grid(life);
       delayOneSecond.slowDown();
@@ -33,8 +34,6 @@ class AppRunner {
     }
     print.seeNextGeneration();
   }
-
-
 
   private boolean gameOver() {
     return input.getInput().toLowerCase().equals("n");
