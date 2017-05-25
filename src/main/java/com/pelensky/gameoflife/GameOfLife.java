@@ -10,7 +10,8 @@ public class GameOfLife {
         new AppRunner(
             new Print(new PrintStream(System.out)),
             new Input(new Scanner(System.in)),
-            new Life(new Grid(10).getCellGrid()));
+            new Life(new Grid(10).getCellGrid()),
+            new DelayOneSecond());
     appRunner.run();
   }
 }

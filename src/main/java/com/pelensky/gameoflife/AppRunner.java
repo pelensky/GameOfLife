@@ -5,11 +5,13 @@ class AppRunner {
   private final Print print;
   private final Life life;
   private final Input input;
+  private final Delay delayOneSecond;
 
-  AppRunner(Print print, Input input, Life life) {
+  AppRunner(Print print, Input input, Life life, Delay delayOneSecond) {
     this.print = print;
     this.input = input;
     this.life = life;
+    this.delayOneSecond = delayOneSecond;
   }
 
   void run() {
@@ -18,6 +20,7 @@ class AppRunner {
     while (!gameOver()) {
       evolve();
     }
+    print.exit();
   }
 
   private void evolve() {
@@ -25,18 +28,13 @@ class AppRunner {
     for (int i = 0; i < numberOfGenerations; i++) {
       print.generationNumber(life);
       print.grid(life);
-      slowDown();
+      delayOneSecond.slowDown();
       life.nextGeneration();
     }
     print.seeNextGeneration();
   }
 
-  private void slowDown() {
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-    }
-  }
+
 
   private boolean gameOver() {
     return input.getInput().toLowerCase().equals("n");

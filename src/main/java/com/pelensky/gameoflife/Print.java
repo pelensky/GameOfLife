@@ -25,6 +25,10 @@ class Print {
             + "Type `n` for No, or any other key for Yes");
   }
 
+  void exit() {
+    output.println("Exiting");
+  }
+
   void grid(Life life) {
     output.println(formatGrid(life));
   }

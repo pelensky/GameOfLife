@@ -23,7 +23,8 @@ public class AppRunnerTest {
     final Life life = new Life(grid);
     Scanner scanner = new Scanner(text);
     Input input = new Input(scanner);
-    appRunner = new AppRunner(print, input, life);
+    Delay fakeDelay = new FakeDelay();
+    appRunner = new AppRunner(print, input, life, fakeDelay);
   }
 
   @Test
@@ -75,5 +76,12 @@ public class AppRunnerTest {
             "See Next Five Generations?"
                 + System.lineSeparator()
                 + "Type `n` for No, or any other key for Yes"));
+  }
+
+  @Test
+  public void printExit(){
+    run("n\n");
+    appRunner.run();
+    assertThat(out.toString(), containsString("Exiting"));
   }
 }
