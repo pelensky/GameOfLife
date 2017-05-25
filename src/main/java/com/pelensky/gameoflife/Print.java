@@ -20,7 +20,7 @@ class Print {
 
   void seeNextGeneration() {
     output.println(
-        "See Next Generation?"
+        "See Next Five Generations?"
             + System.lineSeparator()
             + "Type `n` for No, or any other key for Yes");
   }
