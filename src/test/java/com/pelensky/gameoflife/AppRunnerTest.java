@@ -72,7 +72,7 @@ public class AppRunnerTest {
     assertThat(
         out.toString(),
         containsString(
-            "See Next Generation?"
+            "See Next Five Generations?"
                 + System.lineSeparator()
                 + "Type `n` for No, or any other key for Yes"));
   }
